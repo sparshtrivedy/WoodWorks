@@ -4,7 +4,6 @@ import { Box, Button, Grid, Paper, Table, TableBody, TableCell, TableContainer, 
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import agent from "../../app/api/agent";
-import { useStoreContext } from "../../app/context/StoreContext";
 import { useAppDispatch, useAppSelector } from "../../app/store/configureStore";
 import { removeItem, setBasket } from "./basketSlice";
 import BasketSummary from "./BasketSummary";
@@ -36,7 +35,7 @@ export default function BasketPage() {
 
     return (
         <>
-            <TableContainer component={Paper}>
+            <TableContainer component={Paper} sx={{backgroundColor: '#faf0dc'}}>
                 <Table sx={{ minWidth: 650 }}>
                     <TableHead>
                     <TableRow>
@@ -61,11 +60,11 @@ export default function BasketPage() {
                         </TableCell>
                         <TableCell align="right">${(item.price/100).toFixed(2)}</TableCell>
                         <TableCell align="center">
-                            <LoadingButton color='secondary' onClick={() => handleRemoveItem(item.productId)}>
+                            <LoadingButton color='warning' onClick={() => handleRemoveItem(item.productId)}>
                                 <Remove />
                             </LoadingButton>
                             {item.quantity}
-                            <LoadingButton color='secondary' onClick={() => handleAddItem(item.productId)}>
+                            <LoadingButton color='warning' onClick={() => handleAddItem(item.productId)}>
                                 <Add />
                             </LoadingButton>
                         </TableCell>
@@ -84,7 +83,7 @@ export default function BasketPage() {
                 <Grid item xs={6} />
                 <Grid item xs={6} >
                     <BasketSummary subtotal={subtotal? parseInt(subtotal.toFixed(2)): 0} />
-                    <Button component={Link} to={'/checkout'} variant='contained' size='large' fullWidth>Checkout</Button>
+                    <Button component={Link} to={'/checkout'} variant='contained' size='large' color="warning" fullWidth>Checkout</Button>
                 </Grid>
             </Grid>
         </>

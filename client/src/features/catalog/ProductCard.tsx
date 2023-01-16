@@ -25,25 +25,25 @@ export default function ProductCard({product}: Props) {
     }
 
     return (
-        <Card>
+        <Card sx={{backgroundColor:'#faf0dc'}}>
             <CardHeader
                 avatar={
-                    <Avatar sx={{bgcolor: 'secondary.main'}}>
+                    <Avatar sx={{bgcolor: 'darkOrange'}}>
                         {product.name.charAt(0).toUpperCase()}
                     </Avatar>
                 }
                 title={product.name}
                 titleTypographyProps={{
-                    sx: {fontWeight: 'bold', color: 'primary.main'}
+                    sx: {fontWeight: 'bold', color: '#5A5A5A'}
                 }}
             />
             <CardMedia
-                sx={{ height: 140, backgroundSize: 'contain', bgcolor: 'primary.light' }}
+                sx={{ height: 140, backgroundSize: 'contain', bgcolor: '#d5b895' }}
                 image={product.pictureUrl}
                 title={product.name}
             />
             <CardContent>
-                <Typography gutterBottom color="secondary" variant="h5" component="div">
+                <Typography gutterBottom color="#556B2F" variant="h5" component="div">
                     ${(product.price/100).toFixed(2)}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
@@ -55,10 +55,11 @@ export default function ProductCard({product}: Props) {
                     loading={loading} 
                     onClick={() => handleAddItem(product.id)} 
                     size="small"
+                    sx={{color: 'darkOrange'}}
                 >
                     Add to cart
                 </LoadingButton>
-                <Button component={Link} to={`/catalog/${product.id}`} size="small">View</Button>
+                <Button component={Link} to={`/catalog/${product.id}`} size="small" sx={{color: 'darkOrange'}}>View</Button>
             </CardActions>
         </Card>
     )

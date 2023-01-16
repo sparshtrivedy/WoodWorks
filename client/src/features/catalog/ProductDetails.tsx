@@ -1,9 +1,7 @@
-import { LoadingButton } from "@mui/lab";
 import { Button, Divider, Grid, Table, TableBody, TableCell, TableContainer, TableRow, TextField, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import agent from "../../app/api/agent";
-import { useStoreContext } from "../../app/context/StoreContext";
 import { Product } from "../../app/models/product";
 import { useAppDispatch, useAppSelector } from "../../app/store/configureStore";
 import { removeItem, setBasket } from "../basket/basketSlice";
@@ -62,11 +60,36 @@ export default function ProductDetails() {
         <Grid container spacing={6}>
             <Grid item xs={6}>
                 <img src={product.pictureUrl} alt={product.name} style={{width: '100%'}} />
+                <Grid container spacing={2}>
+                    <Grid item xs={6}>
+                        <TextField
+                            sx={{heigth: '55px'}}
+                            onChange={event => handleInputChange(event)}
+                            variant='outlined'
+                            type='number'
+                            label='Quantity in cart'
+                            fullWidth
+                            value={quantity}
+                        />
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Button
+                            sx={{heigth: 55, p:1.7}}
+                            onClick={() => handleAddItem(parseInt(id), quantity)}
+                            color='warning'
+                            size='large'
+                            variant='contained'
+                            fullWidth
+                        >
+                            {item? 'Update cart': 'Add to cart'}
+                        </Button>
+                    </Grid>
+                    </Grid>
             </Grid>
             <Grid item xs={6}>
                 <Typography variant='h3'>{product.name}</Typography>
                 <Divider sx={{mb: 2}}/>
-                <Typography variant='h4' color='secondary'>${(product.price/100).toFixed(2)}</Typography>
+                <Typography variant='h4' color='#556B2F'>${(product.price/100).toFixed(2)}</Typography>
                 <TableContainer>
                     <Table>
                         <TableBody>
@@ -93,31 +116,6 @@ export default function ProductDetails() {
                         </TableBody>
                     </Table>
                 </TableContainer>
-                <Grid container spacing={2}>
-                    <Grid item xs={6}>
-                        <TextField
-                            sx={{heigth: '55px'}}
-                            onChange={event => handleInputChange(event)}
-                            variant='outlined'
-                            type='number'
-                            label='Quantity in cart'
-                            fullWidth
-                            value={quantity}
-                        />
-                    </Grid>
-                    <Grid item xs={6}>
-                        <Button
-                            sx={{heigth: 55, p:1.7}}
-                            onClick={() => handleAddItem(parseInt(id), quantity)}
-                            color='primary'
-                            size='large'
-                            variant='contained'
-                            fullWidth
-                        >
-                            {item? 'Update cart': 'Add to cart'}
-                        </Button>
-                    </Grid>
-                </Grid>
             </Grid>
         </Grid>
     )

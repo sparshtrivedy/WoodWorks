@@ -11,14 +11,14 @@ interface Props {
 }
 
 const midLinks = [
-    {title: 'catalog', path: '/catalog'},
-    {title: 'about', path: '/about'},
-    {title: 'contact', path: '/contact'},
+    {title: 'Catalog', path: '/catalog'},
+    {title: 'About', path: '/about'},
+    {title: 'Contact', path: '/contact'},
 ]
 
 const rightLinks = [
-    {title: 'login', path: '/login'},
-    {title: 'register', path: '/register'},
+    {title: 'Login', path: '/login'},
+    {title: 'Register', path: '/register'},
 ]
 
 const navStyles = {
@@ -36,11 +36,11 @@ export default function Header({darkMode, handleThemeChange}: Props) {
     const itemCount = basket?.items.reduce((sum, item) => sum += item.quantity, 0);
     
     return (
-        <AppBar position="static" sx={{mb: 4}}>
+        <AppBar position="static" sx={{mb: 4, backgroundColor: '#556B2F'}}>
             <Toolbar sx={{display:'flex', justifyContent:'space-between', alignItems: 'center'}}>   
                 <Box display='flex' alignItems='center'>
                     <Typography variant="h6" component={NavLink} to={'/'} exact sx={navStyles}>
-                        RE-STORE
+                        WoodWorks
                     </Typography>
                     <Switch checked={darkMode} onChange={handleThemeChange} />
                 </Box>
@@ -53,14 +53,14 @@ export default function Header({darkMode, handleThemeChange}: Props) {
                             key={path}
                             sx={navStyles}
                         >
-                            {title.toUpperCase()}
+                            {title}
                         </ListItem>
                     ))}
                 </List>
 
                 <Box display='flex' alignItems='center'>
                     <IconButton component={Link} to='/basket' size='large' sx={{color: 'inherit'}}>
-                        <Badge badgeContent={itemCount} color='secondary'>
+                        <Badge badgeContent={itemCount} color='warning'>
                             <ShoppingCart />
                         </Badge>
                     </IconButton>
@@ -73,7 +73,7 @@ export default function Header({darkMode, handleThemeChange}: Props) {
                                 key={path}
                                 sx={navStyles}
                             >
-                                {title.toUpperCase()}
+                                {title}
                             </ListItem>
                         ))}
                     </List>

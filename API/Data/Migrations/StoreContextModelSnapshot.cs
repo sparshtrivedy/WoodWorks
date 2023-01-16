@@ -27,7 +27,7 @@ namespace API.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Baskets");
+                    b.ToTable("Baskets", (string)null);
                 });
 
             modelBuilder.Entity("API.Entities.BasketItem", b =>
@@ -51,7 +51,7 @@ namespace API.Data.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("BasketItems");
+                    b.ToTable("BasketItems", (string)null);
                 });
 
             modelBuilder.Entity("API.Entities.Product", b =>
@@ -83,7 +83,7 @@ namespace API.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("API.Entities.BasketItem", b =>

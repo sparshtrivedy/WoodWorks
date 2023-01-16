@@ -39,7 +39,7 @@ function App() {
     palette: {
       mode: paletteType,
       background: {
-        default: paletteType === 'light'? '#eaeaea': '#121212'
+        default: paletteType === 'light'? '#e8dcb5': '#121212'
       }
     }
   }); 
@@ -49,7 +49,7 @@ function App() {
   }
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme} >
       <CssBaseline />
       <Header darkMode={darkMode} handleThemeChange={handleThemeChange} />
       <Container>

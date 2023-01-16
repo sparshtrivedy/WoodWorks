@@ -9,7 +9,7 @@ export default function BasketSummary({subtotal}: Props) {
 
     return (
         <>
-            <TableContainer component={Paper} variant={'outlined'}>
+            <TableContainer component={Paper} variant={'outlined'} sx={{backgroundColor: '#faf0dc'}}>
                 <Table>
                     <TableBody>
                         <TableRow>
