@@ -21,8 +21,9 @@ const requests = {
 
 
 const Catalog = {
-    list: () => requests.get('products'),
-    details: (id: number) => requests.get(`products/${id}`)
+    list: (orderBy: string = '', searchTerm: string = '', brands: string = '', types: string = '') => requests.get(`products?orderBy=${orderBy}&searchTerm=${searchTerm}&brands=${brands}&types=${types}`),
+    details: (id: number) => requests.get(`products/${id}`),
+    fetchFilters: () => requests.get('products/filters')
 }
 
 const Basket = {

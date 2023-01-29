@@ -110,7 +110,7 @@ namespace API.Data
                     Price = 1800,
                     PictureUrl = "/images/Images/img9.webp",
                     Brand = "Sven",
-                    Type = "Gloves",
+                    Type = "Sofa",
                     QuantityInStock = 100
                 },
                 new Product
