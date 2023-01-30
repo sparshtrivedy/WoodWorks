@@ -65,7 +65,7 @@ export default function Header({darkMode, handleThemeChange}: Props) {
                         </Badge>
                     </IconButton>
 
-                    <List sx={{display: 'flex'}}>
+                    {/* <List sx={{display: 'flex'}}>
                         {rightLinks.map(({title, path}) => (
                             <ListItem 
                                 component={NavLink}
@@ -76,7 +76,7 @@ export default function Header({darkMode, handleThemeChange}: Props) {
                                 {title}
                             </ListItem>
                         ))}
-                    </List>
+                    </List> */}
                 </Box>
             </Toolbar>
         </AppBar>

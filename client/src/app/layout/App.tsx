@@ -15,6 +15,8 @@ import agent from '../api/agent';
 import CheckoutPage from '../../features/checkout/CheckoutPage';
 import { useAppDispatch } from '../store/configureStore';
 import { setBasket } from '../../features/basket/basketSlice';
+import LoginPage from '../../features/identity/LoginPage';
+import RegisterPage from '../../features/identity/RegisterPage';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -53,13 +55,15 @@ function App() {
       <CssBaseline />
       <Header darkMode={darkMode} handleThemeChange={handleThemeChange} />
       <Container>
-            <Route exact path='/' component={withRouter(HomePage)} />
+            <Route exact path='/' component={withRouter(LoginPage)} />
             <Route exact path='/catalog' component={withRouter(Catalog)} />
             <Route exact path='/catalog/:id' component={withRouter(ProductDetails)} />
             <Route exact path='/about' component={withRouter(AboutPage)} />
             <Route exact path='/contact' component={withRouter(ContactPage)} />
             <Route exact path='/basket' component={withRouter(BasketPage)} />
             <Route exact path='/checkout' component={withRouter(CheckoutPage)} />
+            <Route exact path='/login' component={withRouter(LoginPage)} />
+            <Route exact path='/register' component={withRouter(RegisterPage)} />
       </Container>
     </ThemeProvider>
   );
