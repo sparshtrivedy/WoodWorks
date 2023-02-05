@@ -9,17 +9,7 @@ export default function ContactPage() {
 
     return (
         <>
-        <Typography variant='h2'>
-            {title}
-        </Typography>
-        <Typography variant='h5'>
-            {data}
-        </Typography>
-        <ButtonGroup>
-            <Button onClick={() => dispatch(decrement(1))} variant='contained' color='error'>Decrement</Button>
-            <Button onClick={() => dispatch(increment(1))} variant='contained' color='primary'>Increment</Button>
-            <Button onClick={() => dispatch(increment(5))} variant='contained' color='secondary'>Increment by 5</Button>
-        </ButtonGroup>
+            <Typography variant="h2">Contact page</Typography>
         </>
     )
 }
